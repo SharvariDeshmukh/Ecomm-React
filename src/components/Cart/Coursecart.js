@@ -36,7 +36,7 @@ export default class Coursecart extends Component {
                                         data-item-id={node.id}
                                         data-item-name={node.title}
                                         data-item-price={node.price}
-                                        data-item-url="http://epsilonpy.com"
+                                        data-item-url="https:lco-ecomm.netlify.com"
                                        data-item-image={node.image.fixed.source}
                                        className="btn snipcart-add-item btn-warning"
                                         >Join Now</button>
