@@ -1,48 +1,39 @@
-import React from 'react'
-import Heading from "../reusable/Heading"
-export default function Contact() {
-    return (
-        <section className="py-3">
-            <Heading title="Contact Us"/>
-                <div className=".col-10 col-sm-8 mx-auto">
-                    <form action="https://formspree.io/sharvarideshmukh475@gmail.com" method="POST" >
-                        <div className="form-group">
-                            <input 
-                                type="text" 
-                                name="name" 
-                                id="name" 
-                                placeholder="Your Name" 
-                                className = "form-control"/>
-                        </div>
-                        <div className="form-group">
-                            <input 
-                                type="email" 
-                                name="email" 
-                                id="email" 
-                                placeholder="Your email" 
-                                className = "form-control"/>
-                        </div>
-                        <div className="form-group">
-                            <input 
-                                type="mobile" 
-                                name="mobile" 
-                                id="mobile" 
-                                placeholder="Your mobile" 
-                                className = "form-control"/>
-                        </div>
-                        <div className="form-group">
-                            <textarea
-                                type="text" 
-                                name="description" 
-                                id="description" 
-                                placeholder="Your message" 
-                                className = "form-control"/>
-                        </div>
-                        <button type="submit" 
-                        className="btn btn-outline-info btn-block">
-                        Submit</button>
-                    </form>
-                </div>
-        </section>
-    )
-}
+import React from "react"
+import Contact from "../components/Contact/Contact"
+import { graphql } from 'gatsby'
+import Layout from "../components/layout"
+import HeroSection from "../components/reusable/HeroSection";
+import Infoblock from "../components/reusable/Infoblock";
+import SEO from "../components/seo"
+
+const ContactPage = ({data}) => (
+  <Layout>
+    <SEO title="Home"/>
+    <HeroSection
+    img={data.img.childImageSharp.fluid}
+      title="Contact Us"
+      
+      heroclass="about-background"
+    
+    ></HeroSection>
+    
+    
+    <Infoblock heading="How Can we help?" btnCond="false"/>
+    <Contact/>
+    
+  </Layout>
+)
+
+export const query = graphql`
+{  
+    img: file(relativePath: { eq: "contact.png" }) {
+          childImageSharp {
+            fluid {
+             ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+    }
+}`
+
+
+export default ContactPage
