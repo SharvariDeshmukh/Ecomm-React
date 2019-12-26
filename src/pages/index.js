@@ -1,12 +1,14 @@
 import React from "react"
-import { Link } from "gatsby"
+
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import HeroSection from "../components/reusable/HeroSection";
 import Infoblock from "../components/reusable/Infoblock";
 import Dualinfoblock from "../components/reusable/Dualinfoblock";
 import Coursecart from "../components/Cart/Coursecart";
+import Bundlecart from "../components/Cart/Bundlecart";
 import SEO from "../components/seo"
+
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -20,8 +22,9 @@ const IndexPage = ({data}) => (
     ></HeroSection>
     <Infoblock heading="About Us" btnCond="true"/>
     <Coursecart courses={data.courses}/>
-    <Dualinfoblock heading="Our Team" Imgsrc="https://cdn.pixabay.com/photo/2017/12/28/12/31/sketch-3045125_960_720.jpg"/>
+    <Bundlecart bundles={data.bundles}/>
 
+    <Dualinfoblock heading="Our Team" Imgsrc="https://cdn.pixabay.com/photo/2017/12/28/12/31/sketch-3045125_960_720.jpg"/>
   </Layout>
 )
 
@@ -52,7 +55,21 @@ export const query = graphql`
           }
         }
       }     
+    }
+    bundles:allContentfulBundles{
+      edges{
+        node{
+          id
+          title
+          price
+          image{
+            fixed(width:200, height:120){
+              ...GatsbyContentfulFixed_tracedSVG
+          }
+        }
       }
+    }     
+  }
 }`
 
 
