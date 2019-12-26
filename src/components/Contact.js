@@ -1,5 +1,5 @@
 import React from 'react'
-import Heading from "reusable/Heading"
+import Heading from "./reusable/Heading"
 export default function Contact() {
     return (
         <section className="py-3">
