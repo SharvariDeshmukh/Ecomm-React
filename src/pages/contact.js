@@ -1,9 +1,10 @@
 import React from "react"
-import Contact from "../components/Contact"
+
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import HeroSection from "../components/reusable/HeroSection";
 import Infoblock from "../components/reusable/Infoblock";
+import Contact from "../components/Contact";
 import SEO from "../components/seo"
 
 const ContactPage = ({data}) => (
