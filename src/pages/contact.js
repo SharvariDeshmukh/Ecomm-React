@@ -1,5 +1,5 @@
 import React from "react"
-import Contact from "../components/Contact/Contact"
+import Contact from "../components/Contact"
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import HeroSection from "../components/reusable/HeroSection";
